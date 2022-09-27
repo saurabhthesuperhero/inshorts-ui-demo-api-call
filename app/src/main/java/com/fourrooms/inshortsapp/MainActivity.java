@@ -1,6 +1,5 @@
 package com.fourrooms.inshortsapp;
 
-import android.content.BroadcastReceiver;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +8,6 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.fourrooms.inshortsapp.adapter.ViewPagerAdapter;
@@ -44,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         adapter = new ViewPagerAdapter(this, dataArrayList);
+        binding.viewPagerMain.setOffscreenPageLimit(4);
         binding.viewPagerMain.setAdapter(adapter);
 
         getData(1, limit);

@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.fourrooms.inshortsapp.R;
 import com.fourrooms.inshortsapp.model.LocalTechModel;
 
@@ -49,11 +51,11 @@ public class ViewPagerAdapter extends PagerAdapter {
         ImageView imageView = itemView.findViewById(R.id.imageView);
         TextView tv = itemView.findViewById(R.id.name);
         tv.setText(sliderItems.get(position).getTitle());
-//        imageView.setImageResource(sliderItems.get(position).getImage());
         Glide.with(context)
                 .load(sliderItems.get(position).getImgUrl())
 //                        .load("https://picsum.photos/id/237/200/300")
                 .centerCrop()
+                .apply(new RequestOptions().format(DecodeFormat.PREFER_RGB_565))
                 .error(context.getDrawable(R.drawable.ic_launcher_background))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
