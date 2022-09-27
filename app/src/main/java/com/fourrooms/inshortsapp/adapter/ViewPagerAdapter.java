@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
@@ -51,10 +52,17 @@ public class ViewPagerAdapter extends PagerAdapter {
         ImageView imageView = itemView.findViewById(R.id.imageView);
         TextView tv = itemView.findViewById(R.id.name);
         tv.setText(sliderItems.get(position).getTitle());
+        CircularProgressDrawable drawable = new CircularProgressDrawable(context);
+        drawable.setColorSchemeColors(R.color.black, R.color.black, R.color.black);
+        drawable.setCenterRadius(30f);
+        drawable.setStrokeWidth(5f);
+        // set all other properties as you would see fit and start it
+        drawable.start();
         Glide.with(context)
                 .load(sliderItems.get(position).getImgUrl())
 //                        .load("https://picsum.photos/id/237/200/300")
                 .centerCrop()
+                .placeholder(drawable)
                 .apply(new RequestOptions().format(DecodeFormat.PREFER_RGB_565))
                 .error(context.getDrawable(R.drawable.ic_launcher_background))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

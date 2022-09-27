@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             LocalTechModel temp = new LocalTechModel("data");
                             temp.setTitle(jsonArray.getJSONObject(i).getJSONObject("title").getString("rendered"));
-                            temp.setImgUrl(jsonArray.getJSONObject(i).getString("jetpack_featured_media_url"));
-                            Log.e(TAG, "doInBackground: url" + jsonArray.getJSONObject(i).getString("jetpack_featured_media_url"));
+                            temp.setImgUrl(jsonArray.getJSONObject(i).getJSONObject("parselyMeta").getString("parsely-image-url"));
+//                            Log.e(TAG, "doInBackground: url" + jsonArray.getJSONObject(i).getString("jetpack_featured_media_url"));
 
                             localTechModel.add(temp);
                         }
