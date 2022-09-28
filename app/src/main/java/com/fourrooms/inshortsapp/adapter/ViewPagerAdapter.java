@@ -50,30 +50,51 @@ public class ViewPagerAdapter extends PagerAdapter {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View itemView = mLayoutInflater.inflate(R.layout.list_row_main, container, false);
-        ImageView imageView = itemView.findViewById(R.id.imageView);
-        TextView tv = itemView.findViewById(R.id.name);
-        tv.setText(sliderItems.get(position).getTitle());
-        CircularProgressDrawable drawable = new CircularProgressDrawable(context);
-        drawable.setColorSchemeColors(R.color.black, R.color.black, R.color.black);
-        drawable.setCenterRadius(30f);
-        drawable.setStrokeWidth(5f);
-        // set all other properties as you would see fit and start it
-        drawable.start();
-        Log.e("checkme", "instantiateItem: "+sliderItems.get(position).getImgUrl()+" "+sliderItems.get(position).getThumn() );
-        Glide.with(context)
-                .load(sliderItems.get(position).getImgUrl())
+        String viewType= sliderItems.get(position).getCategory();
+        if (viewType.equals("data")){
+            View itemView = mLayoutInflater.inflate(R.layout.list_row_main, container, false);
+            ImageView imageView = itemView.findViewById(R.id.imageView);
+            TextView tv = itemView.findViewById(R.id.name);
+            tv.setText(sliderItems.get(position).getTitle());
+            CircularProgressDrawable drawable = new CircularProgressDrawable(context);
+            drawable.setColorSchemeColors(R.color.black, R.color.black, R.color.black);
+            drawable.setCenterRadius(30f);
+            drawable.setStrokeWidth(5f);
+            // set all other properties as you would see fit and start it
+            drawable.start();
+            Log.e("checkme", "instantiateItem: "+sliderItems.get(position).getImgUrl()+" "+sliderItems.get(position).getThumn() );
+            Glide.with(context)
+                    .load(sliderItems.get(position).getImgUrl())
 //                        .load("https://images.pexels.com/photos/2246478/pexels-photo-2246478.jpeg")
-                .centerCrop()
-                .transition(DrawableTransitionOptions.withCrossFade())
-                .thumbnail(Glide.with(context)
-                        .load(sliderItems.get(position).getThumn())
-                        .centerCrop())
-                .error(context.getDrawable(R.drawable.ic_launcher_background))
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .into(imageView);
-        container.addView(itemView);
-        return itemView;
+                    .centerCrop()
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .thumbnail(Glide.with(context)
+                            .load(sliderItems.get(position).getThumn())
+                            .centerCrop())
+                    .error(context.getDrawable(R.drawable.ic_launcher_background))
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(imageView);
+            container.addView(itemView);
+            return itemView;
+        }
+        else if (viewType.equals("fullscreenad")){
+            View itemView = mLayoutInflater.inflate(R.layout.list_row_ad, container, false);
+            ImageView imageView = itemView.findViewById(R.id.imageView);
+            Glide.with(context)
+                    .load(sliderItems.get(position).getImgUrl())
+//                        .load("https://images.pexels.com/photos/2246478/pexels-photo-2246478.jpeg")
+                    .centerCrop()
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .thumbnail(Glide.with(context)
+                            .load(sliderItems.get(position).getThumn())
+                            .centerCrop())
+                    .error(context.getDrawable(R.drawable.ic_launcher_background))
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(imageView);
+            container.addView(itemView);
+            return itemView;
+        }
+     return null;
     }
 
     @Override

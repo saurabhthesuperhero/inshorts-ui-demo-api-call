@@ -27,6 +27,14 @@ public class LocalTechModel implements Serializable {
         this.category = category;
     }
 
+    public LocalTechModel(String category, String imgUrl, String title, String thumn, int ids) {
+        this.category = category;
+        this.imgUrl = imgUrl;
+        this.title = title;
+        this.thumn = thumn;
+        this.ids = ids;
+    }
+
     public String getThumn() {
         return thumn;
     }
