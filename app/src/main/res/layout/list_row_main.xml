@@ -21,10 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="1dp"
-            android:background="#323232"
+            android:background="@color/backcolor"
             android:paddingHorizontal="4dp"
             android:text="lorem posem what areyou doing im testing with kind of long text now lets see if this work or not"
-            android:textColor="@color/white"
+            android:textColor="@color/textcolor"
             android:textSize="20dp"
              />
     </LinearLayout>

@@ -2,6 +2,7 @@ package com.fourrooms.inshortsapp.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.fourrooms.inshortsapp.R;
 import com.fourrooms.inshortsapp.model.LocalTechModel;
@@ -58,14 +60,17 @@ public class ViewPagerAdapter extends PagerAdapter {
         drawable.setStrokeWidth(5f);
         // set all other properties as you would see fit and start it
         drawable.start();
+        Log.e("checkme", "instantiateItem: "+sliderItems.get(position).getImgUrl()+" "+sliderItems.get(position).getThumn() );
         Glide.with(context)
                 .load(sliderItems.get(position).getImgUrl())
-//                        .load("https://picsum.photos/id/237/200/300")
+//                        .load("https://images.pexels.com/photos/2246478/pexels-photo-2246478.jpeg")
                 .centerCrop()
-                .placeholder(drawable)
-                .apply(new RequestOptions().format(DecodeFormat.PREFER_RGB_565))
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .thumbnail(Glide.with(context)
+                        .load(sliderItems.get(position).getThumn())
+                        .centerCrop())
                 .error(context.getDrawable(R.drawable.ic_launcher_background))
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(imageView);
         container.addView(itemView);
         return itemView;

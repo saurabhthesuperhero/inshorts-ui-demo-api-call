@@ -17,12 +17,22 @@ public class LocalTechModel implements Serializable {
     @SerializedName("title")
     public String title;
 
+    public String thumn;
+
     @SerializedName("ids")
     @NonNull
     private int ids;
 
     public LocalTechModel(String category) {
         this.category = category;
+    }
+
+    public String getThumn() {
+        return thumn;
+    }
+
+    public void setThumn(String thumn) {
+        this.thumn = thumn;
     }
 
     public String getCategory() {
