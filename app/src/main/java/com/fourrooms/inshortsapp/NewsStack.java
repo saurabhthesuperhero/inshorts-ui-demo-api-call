@@ -55,8 +55,8 @@ public class NewsStack extends AppCompatActivity {
         adapter = new ViewPagerAdapterRoom(this, dataArrayList);
         binding.viewPagerMain.setAdapter(adapter);
         binding.viewPagerMain.setOffscreenPageLimit(3);
-        binding.viewPagerMain.setPageTransformer(false, new DepthPageTransformer());
 
+        binding.viewPagerMain.setPageTransformer(false, new DepthPageTransformer());
 //        binding.viewPagerMain.getChildDrawingOrder()
 //        binding.viewPagerMain.setPageTransformer(new SliderTransformer(3));
         bindData();
@@ -106,7 +106,7 @@ public class NewsStack extends AppCompatActivity {
 //        }
 //        }
 
-    public static class DepthPageTransformer implements ViewPager.PageTransformer {
+    public class DepthPageTransformer implements ViewPager.PageTransformer {
         private static final float MIN_SCALE = 0.5f;
         private static final float MAX_SCALE = 0.8f;
         private static final float MIN_FADE = 0.2f;
