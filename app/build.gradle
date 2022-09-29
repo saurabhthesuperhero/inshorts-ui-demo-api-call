@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+
 }
 
 android {
@@ -29,9 +31,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
+
 dependencies {
+    implementation 'androidx.core:core-ktx:1.4.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
@@ -51,4 +57,18 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
     implementation 'com.github.MindorksOpenSource:screenshot:v0.0.1'
+
+    // add below dependency for using room.
+
+    implementation 'androidx.room:room-runtime:2.4.2'
+
+    annotationProcessor 'androidx.room:room-compiler:2.4.2'
+
+// add below dependency for using lifecycle extensions for room.
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.4.1'
+
+    implementation 'com.github.saurabhthesuperhero:viewpager-animations-lib:1.0.3'
 }

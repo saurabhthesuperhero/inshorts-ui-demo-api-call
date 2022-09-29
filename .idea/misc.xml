@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/drawable/background.xml" value="0.19" />
+        <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/drawable/round_bg.xml" value="0.1895" />
+        <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/layout/activity_full_news.xml" value="0.33" />
         <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/layout/activity_image.xml" value="0.32083333333333336" />
         <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/layout/activity_new.xml" value="0.32083333333333336" />
+        <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/layout/activity_news_stack.xml" value="0.32083333333333336" />
         <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/layout/list_row_ad.xml" value="0.32083333333333336" />
         <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/layout/list_row_main.xml" value="0.32083333333333336" />
         <entry key="..\:/Saurabh/InshortsAPP/app/src/main/res/xml/file_paths.xml" value="0.32083333333333336" />

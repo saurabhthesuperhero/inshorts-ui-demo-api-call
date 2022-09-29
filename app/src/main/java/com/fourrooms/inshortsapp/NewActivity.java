@@ -19,6 +19,7 @@ public class NewActivity extends AppCompatActivity {
     ArrayList<LocalTechModel> dataArrayList = new ArrayList<>();
     public ViewPagerAdapter adapter;
     public ActivityNewBinding binding;
+
     Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
