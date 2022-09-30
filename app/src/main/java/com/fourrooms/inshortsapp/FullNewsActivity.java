@@ -58,7 +58,7 @@ public class FullNewsActivity extends AppCompatActivity {
         });
 //        toolbar.set
 
-        RunNotification();
+//        RunNotification();
     }
 
 

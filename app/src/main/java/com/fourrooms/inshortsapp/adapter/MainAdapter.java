@@ -47,7 +47,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         // based on viewtype viewholder is used
         if (viewType == TYPE_DATA) {
             // data view holder for items
-            return new DataViewHolder(inflater.inflate(R.layout.list_row_main, parent, false));
+            return new DataViewHolder(inflater.inflate(R.layout.list_row_main_staggered, parent, false));
         } else {
             //progress view holder for progress
             return new ProgressViewHolder(inflater.inflate(R.layout.progressbar, parent, false));
@@ -68,19 +68,28 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 drawable.start();
 
                 Log.e("checkme", "onBindViewHolder: " + dataArrayList.get(position).getImgUrl());
-                Glide.with(activity)
-                        .load(dataArrayList.get(position).getImgUrl())
-//                        .load("https://picsum.photos/id/237/200/300")
-                        .centerCrop()
-                        .error(activity.getDrawable(R.drawable.ic_launcher_background))
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(drawable)
-                        .into(((DataViewHolder) holder).imageView);
+//                Glide.with(activity)
+//                        .load(dataArrayList.get(position).getImgUrl())
+////                        .load("https://picsum.photos/id/237/200/300")
+//                        .centerCrop()
+//                        .error(activity.getDrawable(R.drawable.ic_launcher_background))
+//                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                        .placeholder(drawable)
+//                        .into(((DataViewHolder) holder).imageView);
+//
+//                ((DataViewHolder) holder).name.setText(dataArrayList.get(position).getTitle());
 
-                ((DataViewHolder) holder).name.setText(dataArrayList.get(position).getTitle());
+//                ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
+//                layoutParams.height = (int) ((position + 1) / 5.0 * 500);
+//                holder.itemView.setLayoutParams(layoutParams);
+
+                Glide.with(activity).load(dataArrayList.get(position).getImgUrl()).dontTransform().
+                        diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(drawable).into(((DataViewHolder) holder).imageView);
             } catch (Exception e) {
                 Log.e("checkme", "onBindViewHolder: " + e.getMessage());
             }
+
+
 
 //            holder.itemView.setOnClickListener(v -> {
 //
