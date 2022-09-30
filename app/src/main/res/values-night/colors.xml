@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="textcolor">#FFFFFFFF</color>
     <color name="backcolor">#1C1B1B</color>
-
+<!--    <color name="colorDarkSemiTransparent">#C6000000</color>-->
+    <color name="colorDarkSemiTransparent">#E0000000</color>
 </resources>
