@@ -11,6 +11,7 @@ import android.view.View;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.ViewCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.viewpager.widget.ViewPager;
@@ -60,7 +61,7 @@ public class NewsStack extends AppCompatActivity {
 //        binding.viewPagerMain.getChildDrawingOrder()
 //        binding.viewPagerMain.setPageTransformer(new SliderTransformer(3));
         bindData();
-
+        NotificationManagerCompat.from(this).cancel(null, 1);
 //        getData(1, limit);
     }
 

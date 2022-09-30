@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.fourrooms.inshortsapp"
-        minSdk 21
+        minSdk 23
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -71,4 +71,6 @@ dependencies {
     annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.4.1'
 
     implementation 'com.github.saurabhthesuperhero:viewpager-animations-lib:1.0.3'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }
